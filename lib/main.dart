@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home_screen.dart';
+import 'screens/bottom_nav_screen.dart';
 
 void main() {
   runApp(
@@ -58,7 +58,7 @@ class Apollo extends StatelessWidget {
               fontSize: 18.0,
             ),
           )),
-      home: const HomeScreen(),
+      home: const BottomNavScreen(),
     );
   }
 }
