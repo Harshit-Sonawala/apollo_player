@@ -17,17 +17,18 @@ class Apollo extends StatelessWidget {
       title: 'Apollo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          splashColor: const Color.fromRGBO(75, 219, 255, 0.342),
           colorScheme: const ColorScheme(
             brightness: Brightness.dark,
             background: Color(0xff1d1d1d),
             onBackground: Colors.white,
             surface: Color(0xff2d2d2d),
             onSurface: Colors.white,
-            primary: Color(0xff2d2d2d),
-            onPrimary: Color.fromARGB(255, 75, 219, 255),
+            primary: Color(0xFF4BDBFF),
+            onPrimary: Color(0xff1d1d1d),
             secondary: Color(0xff3d3d3d),
-            onSecondary: Color.fromARGB(255, 47, 136, 238),
-            error: Color.fromARGB(255, 255, 87, 75),
+            onSecondary: Color(0xFF2F88EE),
+            error: Color(0xffdd1b6c),
             onError: Color(0xff1d1d1d),
           ),
           useMaterial3: true,
@@ -36,17 +37,17 @@ class Apollo extends StatelessWidget {
             displayLarge: TextStyle(
               fontSize: 26.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
             ),
             displayMedium: TextStyle(
               fontSize: 22.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
             ),
             displaySmall: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).colorScheme.primary,
             ),
             bodyLarge: const TextStyle(
               fontSize: 26.0,

@@ -17,7 +17,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   GlobalKey<ScaffoldState> bottomNavScaffoldKey = GlobalKey<ScaffoldState>();
   var _selectedScreenIndex = 0;
-  var _showAccounts = true;
+  final _showAccounts = true;
   final List<Map<String, Object>> _screenData = const [
     {"screen": HomeScreen()},
     {"screen": ExploreScreen()},
@@ -32,56 +32,33 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       extendBody: true,
       body: _screenData[_selectedScreenIndex]['screen'] as Widget,
       bottomNavigationBar: CustomCard(
-        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+        borderRadius: BorderRadius.circular(20),
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+        padding: const EdgeInsets.all(0),
         child: BottomNavigationBar(
-          items: [
-            const BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                size: 26,
-              ),
-              label: 'Home',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(
-                Icons.explore,
-                size: 26,
-              ),
-              label: 'Explore',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                size: 26,
-              ),
-              label: 'Search',
-            ),
-            // if (context.watch<AuthProvider>().currentUser != null)
-            // if (Provider.of<AuthProvider>(context).currentUser != null)
-            if (_showAccounts)
-              const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.accessibility_new,
-                  size: 26,
-                ),
-                label: 'My Exercises',
-              ),
-          ],
-          currentIndex: _selectedScreenIndex,
           onTap: (int newIndex) => {
             setState(() {
               _selectedScreenIndex = newIndex;
             }),
           },
+          currentIndex: _selectedScreenIndex,
           type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
+          showUnselectedLabels: false,
           selectedFontSize: 14,
           unselectedFontSize: 14,
-          selectedItemColor: Theme.of(context).primaryColor,
+          iconSize: 28,
+          selectedItemColor: Theme.of(context).colorScheme.primary,
           unselectedItemColor: Colors.white,
+          items: [
+            const BottomNavigationBarItem(icon: Icon(Icons.headphones), label: 'Home'),
+            const BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+            const BottomNavigationBarItem(icon: Icon(Icons.queue_music), label: 'Playlists'),
+            // if (context.watch<AuthProvider>().currentUser != null)
+            // if (Provider.of<AuthProvider>(context).currentUser != null)
+            if (_showAccounts) const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account'),
+          ],
         ),
       ),
     );
