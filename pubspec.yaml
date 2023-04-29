@@ -1,5 +1,5 @@
 name: apollo_player
-description: A new Flutter project.
+description: A music player app with a primary focus on the frontend and user experience.
 publish_to: 'none'
 version: 0.1.0
 
@@ -17,3 +17,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/fonts/
+
+  fonts:
+    - family: ProductSans
+      fonts:
+        - asset: assets/fonts/ProductSans-Regular.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
