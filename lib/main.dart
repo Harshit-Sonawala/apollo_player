@@ -1,3 +1,4 @@
+import 'package:apollo_player/widgets/custom_gradient_background.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/bottom_nav_screen.dart';
@@ -20,11 +21,19 @@ class Apollo extends StatelessWidget {
           splashColor: const Color.fromRGBO(75, 219, 255, 0.342),
           colorScheme: const ColorScheme(
             brightness: Brightness.dark,
-            background: Color(0xff1d1d1d),
+            // const LinearGradient(
+            //     begin: Alignment.topLeft,
+            //     end: Alignment.bottomRight,
+            //     colors: [
+            //       Colors.blue,
+            //       Color(0xff00e5ff),
+            //     ],
+            //   ),
+            background: Colors.transparent,
             onBackground: Colors.white,
-            surface: Color(0xff2d2d2d),
+            surface: Color.fromARGB(24, 255, 255, 255),
             onSurface: Colors.white,
-            primary: Color(0xFF4BDBFF),
+            primary: Color(0xFF4bdbff),
             onPrimary: Color(0xff1d1d1d),
             secondary: Color(0xff3d3d3d),
             onSecondary: Color(0xFF2F88EE),
@@ -33,33 +42,34 @@ class Apollo extends StatelessWidget {
           ),
           useMaterial3: true,
           fontFamily: 'ProductSans',
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
             displayLarge: TextStyle(
-              fontSize: 26.0,
+              fontSize: 28.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color(0xff4bdbff),
             ),
             displayMedium: TextStyle(
-              fontSize: 22.0,
+              fontSize: 26.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
             ),
             displaySmall: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color(0xff4bdbff),
             ),
-            bodyLarge: const TextStyle(
+            bodyLarge: TextStyle(
+              fontSize: 28.0,
+            ),
+            bodyMedium: TextStyle(
               fontSize: 26.0,
             ),
-            bodyMedium: const TextStyle(
-              fontSize: 22.0,
-            ),
-            bodySmall: const TextStyle(
+            bodySmall: TextStyle(
               fontSize: 18.0,
             ),
           )),
-      home: const BottomNavScreen(),
+      home: const CustomGradientBackground(
+        child: BottomNavScreen(),
+      ),
     );
   }
 }

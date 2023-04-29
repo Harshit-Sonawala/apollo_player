@@ -9,12 +9,12 @@ class CustomCard extends StatefulWidget {
   final Color? color;
 
   const CustomCard({
-    this.padding = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(16),
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.margin,
     this.child,
     this.backgroundImage = '',
-    this.color = const Color(0xff2d2d2d),
+    this.color = const Color.fromARGB(17, 255, 255, 255),
     super.key,
   });
 
@@ -25,31 +25,28 @@ class CustomCard extends StatefulWidget {
 class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: widget.borderRadius,
-      child: Container(
-        margin: widget.margin,
-        padding: widget.padding,
-        decoration: widget.backgroundImage != ''
-            ? BoxDecoration(
-                // borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: AssetImage(
-                    widget.backgroundImage,
-                  ),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.2),
-                    BlendMode.darken,
-                  ),
+    return Container(
+      margin: widget.margin,
+      padding: widget.padding,
+      decoration: widget.backgroundImage != ''
+          ? BoxDecoration(
+              // borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(
+                  widget.backgroundImage,
                 ),
-              )
-            : BoxDecoration(
-                color: widget.color,
-                borderRadius: BorderRadius.circular(10),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.2),
+                  BlendMode.darken,
+                ),
               ),
-        child: widget.child,
-      ),
+            )
+          : BoxDecoration(
+              color: widget.color,
+              borderRadius: BorderRadius.circular(10),
+            ),
+      child: widget.child,
     );
   }
 }
