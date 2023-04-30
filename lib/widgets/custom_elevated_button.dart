@@ -63,7 +63,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.blue,
+                  const Color.fromARGB(255, 46, 153, 224),
                   Theme.of(context).colorScheme.primary,
                   Theme.of(context).colorScheme.primary,
                   Theme.of(context).colorScheme.secondary,

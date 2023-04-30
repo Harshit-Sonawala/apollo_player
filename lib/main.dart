@@ -58,10 +58,10 @@ class Apollo extends StatelessWidget {
             color: Color(0xff4bdbff),
           ),
           bodyLarge: TextStyle(
-            fontSize: 26.0,
+            fontSize: 24.0,
           ),
           bodyMedium: TextStyle(
-            fontSize: 22.0,
+            fontSize: 19.0,
           ),
           bodySmall: TextStyle(
             fontSize: 16.0,

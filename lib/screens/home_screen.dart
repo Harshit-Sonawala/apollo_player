@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 5),
                         Text(
                           'Music',
-                          style: Theme.of(context).textTheme.bodyLarge,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ],
                     ),
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text(
                             'Good Morning,',
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                           Text(
                             'Harshit',
@@ -105,25 +105,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Recently Added:',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    const SizedBox(width: 10),
-                    CustomElevatedButton(
-                      onPressed: () => {},
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                      trailingIcon: Icons.playlist_add,
-                      title: 'Play',
-                    ),
-                    const SizedBox(width: 10),
-                    CustomElevatedButton(
-                      onPressed: () => {},
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                      // border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
-                      trailingIcon: Icons.shuffle,
-                      title: 'Shuffle',
+                    Row(
+                      children: [
+                        CustomElevatedButton(
+                          onPressed: () => {},
+                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                          trailingIcon: Icons.playlist_add,
+                          title: 'Play',
+                        ),
+                        const SizedBox(width: 10),
+                        CustomElevatedButton(
+                          onPressed: () => {},
+                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                          // border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
+                          trailingIcon: Icons.shuffle,
+                          title: 'Shuffle',
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -150,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       'All Tracks:',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const SizedBox(width: 10),
                   ],
