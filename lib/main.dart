@@ -33,9 +33,9 @@ class Apollo extends StatelessWidget {
           onBackground: Colors.white,
           surface: Color.fromARGB(24, 255, 255, 255),
           onSurface: Colors.white,
-          primary: Color(0xFF4bdbff),
+          primary: Color(0xff4bdbff),
           onPrimary: Color(0xff1d1d1d),
-          secondary: Color(0xff3d3d3d),
+          secondary: Color.fromARGB(255, 13, 161, 137),
           onSecondary: Color(0xFF2F88EE),
           error: Color(0xffdd1b6c),
           onError: Color(0xff1d1d1d),
@@ -69,6 +69,10 @@ class Apollo extends StatelessWidget {
         ),
         buttonTheme: const ButtonThemeData(
           padding: EdgeInsets.all(0),
+        ),
+        iconTheme: const IconThemeData(
+          size: 20,
+          color: Colors.white,
         ),
       ),
       home: const CustomGradientBackground(

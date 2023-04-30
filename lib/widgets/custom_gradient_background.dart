@@ -20,6 +20,8 @@ class _CustomGradientBackgroundState extends State<CustomGradientBackground> {
             // Color.fromARGB(178, 18, 165, 218),
             // Color.fromARGB(166, 12, 110, 146),
             // Color.fromARGB(172, 11, 109, 145),
+            Color(0xff3d3d3d),
+            Color(0xff2d2d2d),
             Color(0xff1d1d1d),
             Color(0xff1d1d1d),
           ],

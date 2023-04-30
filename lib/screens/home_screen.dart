@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_card.dart';
+import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_button.dart';
 import '../widgets/track_card.dart';
 
@@ -110,30 +111,39 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     const SizedBox(width: 10),
-                    CustomTextButton(
+                    CustomElevatedButton(
                       onPressed: () => {},
-                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                      border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
-                      borderRadius: 50,
-                      icon: Icons.playlist_add,
-                      iconSize: 24,
+                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                      trailingIcon: Icons.playlist_add,
                       title: 'Play',
                     ),
                     const SizedBox(width: 10),
-                    CustomTextButton(
+                    CustomElevatedButton(
                       onPressed: () => {},
-                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                      border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
-                      borderRadius: 50,
-                      icon: Icons.shuffle,
-                      iconSize: 22,
+                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                      // border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
+                      trailingIcon: Icons.shuffle,
                       title: 'Shuffle',
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
                 const TrackCard(
-                  trackTitle: 'Track ABC',
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -145,6 +155,43 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 10),
                   ],
                 ),
+                const SizedBox(height: 20),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 10),
+                const TrackCard(
+                  trackTitle: 'Track Title',
+                  trackSubtitle: 'Track Subtitle',
+                  trackDuration: '12:34',
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

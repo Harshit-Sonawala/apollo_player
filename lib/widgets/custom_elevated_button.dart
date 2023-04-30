@@ -5,7 +5,7 @@ class CustomElevatedButton extends StatefulWidget {
   // final void Function() onPressed;
   final Widget? child;
   final EdgeInsets? padding;
-  final BorderRadiusGeometry? borderRadius;
+  final double? borderRadius;
   final String backgroundImage;
   final String? title;
   final double? fontSize;
@@ -21,14 +21,14 @@ class CustomElevatedButton extends StatefulWidget {
     required this.onPressed,
     this.child,
     this.padding = const EdgeInsets.all(16),
-    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.borderRadius = 10,
     this.backgroundImage = '',
     this.title,
-    this.fontSize = 18,
+    this.fontSize = 16,
     this.icon,
-    this.iconSize = 28,
+    this.iconSize = 22,
     this.trailingIcon,
-    this.trailingIconSize = 28,
+    this.trailingIconSize = 22,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     super.key,
@@ -44,7 +44,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
     return Ink(
       decoration: widget.backgroundImage != ''
           ? BoxDecoration(
-              borderRadius: widget.borderRadius,
+              borderRadius: BorderRadius.circular(widget.borderRadius!),
               image: DecorationImage(
                 image: AssetImage(
                   widget.backgroundImage,
@@ -58,20 +58,22 @@ class _CustomButtonState extends State<CustomElevatedButton> {
             )
           : BoxDecoration(
               // color: const Color(0xff3d3d3d),
-              borderRadius: widget.borderRadius,
-              gradient: const LinearGradient(
+              borderRadius: BorderRadius.circular(widget.borderRadius!),
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
                   Colors.blue,
-                  Color(0xff00e5ff),
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.secondary,
                 ],
               ),
             ),
       child: InkWell(
         onTap: widget.onPressed,
         customBorder: RoundedRectangleBorder(
-          borderRadius: widget.borderRadius!,
+          borderRadius: BorderRadius.circular(widget.borderRadius!),
         ),
         child: Padding(
           padding: widget.padding!,
@@ -83,18 +85,19 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                 Icon(
                   widget.icon,
                   size: widget.iconSize,
-                  color: Colors.white,
+                  color: const Color(0xff1d1d1d),
                 ),
               if (widget.icon != null && widget.title != null)
                 const SizedBox(
-                  width: 10,
+                  width: 4,
                 ),
               if (widget.title != null)
                 Text(
                   widget.title!,
                   style: TextStyle(
                     fontSize: widget.fontSize,
-                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xff1d1d1d),
                   ),
                 ),
               if (widget.trailingIcon != null && widget.title != null)
@@ -105,7 +108,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                 Icon(
                   widget.trailingIcon,
                   size: widget.trailingIconSize,
-                  color: Colors.white,
+                  color: const Color(0xff1d1d1d),
                 ),
               // widget.title != null
               //     ? Text(

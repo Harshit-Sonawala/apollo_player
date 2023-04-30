@@ -37,7 +37,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         borderRadius: BorderRadius.circular(50),
         child: CustomCard(
           borderRadius: 20,
-          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          margin: const EdgeInsets.only(
+            top: 8,
+            left: 10,
+            right: 10,
+            bottom: 10,
+          ),
           padding: const EdgeInsets.all(0),
           child: BottomNavigationBar(
             onTap: (int newIndex) => {
