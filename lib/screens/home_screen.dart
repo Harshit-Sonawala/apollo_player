@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_text_button.dart';
+import '../widgets/track_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -111,15 +112,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 10),
                     CustomTextButton(
                       onPressed: () => {},
+                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
+                      borderRadius: 50,
+                      icon: Icons.playlist_add,
+                      iconSize: 24,
+                      title: 'Play',
+                    ),
+                    const SizedBox(width: 10),
+                    CustomTextButton(
+                      onPressed: () => {},
+                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                      border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
+                      borderRadius: 50,
+                      icon: Icons.shuffle,
+                      iconSize: 22,
                       title: 'Shuffle',
-                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
-                      icon: Icons.keyboard_arrow_down,
-                      border: const BorderSide(width: 1, color: Colors.grey),
-                      borderRadius: 10,
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
+                const TrackCard(
+                  trackTitle: 'Track ABC',
+                ),
                 const SizedBox(height: 20),
                 Row(
                   children: [

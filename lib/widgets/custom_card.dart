@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatefulWidget {
   final EdgeInsets? margin;
   final EdgeInsets? padding;
-  final BorderRadius borderRadius;
+  final double borderRadius;
   final Widget? child;
   final String backgroundImage;
   final Color? color;
 
   const CustomCard({
     this.padding = const EdgeInsets.all(16),
-    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.borderRadius = 10,
     this.margin,
     this.child,
     this.backgroundImage = '',
@@ -30,7 +30,7 @@ class _CustomCardState extends State<CustomCard> {
       padding: widget.padding,
       decoration: widget.backgroundImage != ''
           ? BoxDecoration(
-              // borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(widget.borderRadius),
               image: DecorationImage(
                 image: AssetImage(
                   widget.backgroundImage,

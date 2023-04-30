@@ -6,6 +6,7 @@ import './playlists_screen.dart';
 import './account_screen.dart';
 
 import '../widgets/custom_card.dart';
+import '../widgets/custom_drawer.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});
@@ -29,12 +30,13 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: bottomNavScaffoldKey,
+      drawer: CustomDrawer(),
       extendBody: true,
       body: _screenData[_selectedScreenIndex]['screen'] as Widget,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(50),
         child: CustomCard(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: 20,
           margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           padding: const EdgeInsets.all(0),
           child: BottomNavigationBar(
