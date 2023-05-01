@@ -102,7 +102,7 @@ class _CustomButtonState extends State<CustomElevatedButton> {
                 ),
               if (widget.trailingIcon != null && widget.title != null)
                 const SizedBox(
-                  width: 10,
+                  width: 4,
                 ),
               if (widget.trailingIcon != null)
                 Icon(

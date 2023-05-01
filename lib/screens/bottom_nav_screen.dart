@@ -7,6 +7,7 @@ import './account_screen.dart';
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_drawer.dart';
+import '../widgets/now_playing_bar.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});
@@ -30,19 +31,26 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: bottomNavScaffoldKey,
-      drawer: CustomDrawer(),
+      backgroundColor: Colors.transparent,
+      drawer: const CustomDrawer(),
       extendBody: true,
-      body: _screenData[_selectedScreenIndex]['screen'] as Widget,
+      body: Stack(
+        // alignment: Alignment.topCenter,
+        children: [
+          _screenData[_selectedScreenIndex]['screen'] as Widget,
+          const NowPlayingBar(),
+        ],
+      ),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(10),
         child: CustomCard(
           borderRadius: 20,
-          margin: const EdgeInsets.only(
-            top: 8,
-            left: 10,
-            right: 10,
-            bottom: 10,
-          ),
+          // margin: const EdgeInsets.only(
+          //   top: 8,
+          //   left: 10,
+          //   right: 10,
+          //   bottom: 10,
+          // ),
           padding: const EdgeInsets.all(0),
           child: BottomNavigationBar(
             onTap: (int newIndex) => {

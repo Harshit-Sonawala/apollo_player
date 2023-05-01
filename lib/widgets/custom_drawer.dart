@@ -11,7 +11,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
-        backgroundColor: Color.fromARGB(241, 30, 30, 30),
+        backgroundColor: const Color.fromARGB(241, 30, 30, 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[

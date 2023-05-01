@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/custom_card.dart';
 import '../widgets/custom_elevated_button.dart';
-import '../widgets/custom_text_button.dart';
 import '../widgets/track_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -115,14 +114,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         CustomElevatedButton(
                           onPressed: () => {},
-                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                           trailingIcon: Icons.playlist_add,
                           title: 'Play',
                         ),
                         const SizedBox(width: 10),
                         CustomElevatedButton(
                           onPressed: () => {},
-                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                           // border: BorderSide(width: 1, color: Theme.of(context).colorScheme.primary),
                           trailingIcon: Icons.shuffle,
                           title: 'Shuffle',
