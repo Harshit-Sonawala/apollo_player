@@ -12,102 +12,99 @@ class NowPlayingBar extends StatefulWidget {
 class _NowPlayingBarState extends State<NowPlayingBar> {
   // Offset pos_offset = const Offset(32, 732);
   double _nowPlayingHeight = 80;
-  bool _shrink = false;
+  bool _nowPlayingClosed = true;
   @override
   Widget build(BuildContext context) {
-    // Offset pos_offset = Offset(
-    //   MediaQuery.of(context).size.width - 20,
-    //   MediaQuery.of(context).size.height - 135,
-    // );
-    debugPrint('Device Height: ${MediaQuery.of(context).size.height}');
+    // debugPrint('Device Height: ${MediaQuery.of(context).size.height}');
+    debugPrint('_nowPlayingClosed: $_nowPlayingClosed');
+    var minOpenThreshold = 0.3 * MediaQuery.of(context).size.height;
+    var maxHeight = 0.8 * MediaQuery.of(context).size.height;
+    var minHeight = 80.0;
     return Positioned(
       // top: pos_offset.dy,
       bottom: 60 + MediaQuery.of(context).size.height * 0.008,
       child: GestureDetector(
         onVerticalDragUpdate: (DragUpdateDetails dragUpdateDetails) => {
-          if (dragUpdateDetails.delta.dy < 0) // if upward swipe
+          if (dragUpdateDetails.delta.dy < 0) // if upward swipe but not necessary it crosses threshold
             {
-              debugPrint('dragUpdateDetails.delta.dy: ${dragUpdateDetails.delta.dy}'),
               setState(() => {
                     // pos_offset += dragUpdateDetails.delta,
-                    _nowPlayingHeight += dragUpdateDetails.delta.dy * -1,
+                    _nowPlayingHeight += dragUpdateDetails.delta.dy * -1
                   }),
             },
-          if (dragUpdateDetails.delta.dy > 0 &&
-              _nowPlayingHeight > 0.2 * MediaQuery.of(context).size.height) // if downward swipe && height is bigger
+          if (dragUpdateDetails.delta.dy > 0 && _nowPlayingHeight == maxHeight) // if downward swipe && height is bigger
             {
-              setState(() => {_shrink = true}),
+              setState(() => {_nowPlayingHeight = minHeight, _nowPlayingClosed = true})
             }
         },
-        onVerticalDragEnd: (DragEndDetails dragEndDetails) async => {
-          debugPrint('dragEndDetails: $dragEndDetails'),
-          // for (var i = dragEndDetails.delta.dy; i > 80; i--) {
-          if (_nowPlayingHeight > 0.2 * MediaQuery.of(context).size.height)
+        onVerticalDragEnd: (DragEndDetails dragEndDetails) => {
+          if (_nowPlayingHeight >
+              minOpenThreshold) // on swipe complete, if threshold crossed, open completely, else close
             {
-              for (var i = _nowPlayingHeight; i <= 0.8 * MediaQuery.of(context).size.height; i += 1)
-                {
-                  await Future.delayed(const Duration(microseconds: 800)),
-                  setState(() => {
-                        _nowPlayingHeight += 1,
-                      }),
-                },
-            },
-          // }
-          if (_shrink)
+              setState(() => {_nowPlayingClosed = false})
+            }
+          else
             {
-              for (var i = _nowPlayingHeight; i > 80.0; i -= 1)
-                {
-                  await Future.delayed(const Duration(microseconds: 800)),
-                  setState(() => {
-                        _nowPlayingHeight -= 1,
-                        _shrink = false,
-                      }),
-                },
+              setState(() => {_nowPlayingClosed = true})
             },
+          if (!_nowPlayingClosed) {_nowPlayingHeight = maxHeight} else {_nowPlayingHeight = minHeight}
         },
-        child: SizedBox(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
           height: _nowPlayingHeight,
           width: MediaQuery.of(context).size.width,
           child: CustomCard(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 0),
             color: const Color.fromARGB(248, 40, 40, 40),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: Column(
+              mainAxisAlignment: _nowPlayingClosed ? MainAxisAlignment.center : MainAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Row(
-                    children: [
-                      const CustomCard(
-                        padding: EdgeInsets.all(20),
-                        borderRadius: 2,
-                        child: Icon(Icons.album),
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                !_nowPlayingClosed
+                    ? Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 20,
+                      )
+                    : Container(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Row(
                         children: [
-                          Text(
-                            'Now Playing',
-                            style: Theme.of(context).textTheme.displaySmall,
+                          const CustomCard(
+                            padding: EdgeInsets.all(20),
+                            borderRadius: 2,
+                            child: Icon(Icons.album),
                           ),
-                          Text(
-                            'Now Subtitle',
-                            style: Theme.of(context).textTheme.bodySmall,
+                          const SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Now Playing',
+                                style: Theme.of(context).textTheme.displaySmall,
+                              ),
+                              Text(
+                                'Now Subtitle',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    IconButton(
+                        onPressed: () => {},
+                        icon: const Icon(
+                          Icons.play_arrow,
+                          size: 28,
+                        )),
+                  ],
                 ),
-                IconButton(
-                    onPressed: () => {},
-                    icon: const Icon(
-                      Icons.play_arrow,
-                      size: 28,
-                    )),
               ],
             ),
           ),
