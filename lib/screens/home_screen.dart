@@ -36,29 +36,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         size: 28,
                       ),
                     ),
-                    const SizedBox(width: 20),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.headphones,
-                          color: Theme.of(context).colorScheme.primary,
-                          size: 30,
-                        ),
-                        const SizedBox(width: 5),
-                        Text(
-                          'Apollo',
-                          style: Theme.of(context).textTheme.displayLarge,
-                        ),
-                        const SizedBox(width: 5),
-                        Text(
-                          'Music',
-                          style: Theme.of(context).textTheme.displayMedium,
-                        ),
-                      ],
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.headphones,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 30,
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            'Apollo',
+                            style: Theme.of(context).textTheme.displayLarge,
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            'Music',
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(width: 20),
-                    Expanded(child: Container()),
                     IconButton(
                       onPressed: () => {
                         // widget.passedKey.currentState?.openDrawer(),

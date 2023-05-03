@@ -21,6 +21,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   var _selectedScreenIndex = 0;
   final _showAccounts = true;
   final _showNowPlaying = true;
+  final _showBottomNavigationBar = true;
   final List<Map<String, Object>> _screenData = const [
     {"screen": HomeScreen()},
     {"screen": ExploreScreen()},
@@ -42,42 +43,38 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           if (_showNowPlaying) const NowPlayingBar(),
         ],
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: CustomCard(
-          borderRadius: 20,
-          // margin: const EdgeInsets.only(
-          //   top: 8,
-          //   left: 10,
-          //   right: 10,
-          //   bottom: 10,
-          // ),
-          padding: const EdgeInsets.all(0),
-          child: BottomNavigationBar(
-            onTap: (int newIndex) => {
-              setState(() {
-                _selectedScreenIndex = newIndex;
-              }),
-            },
-            currentIndex: _selectedScreenIndex,
-            type: BottomNavigationBarType.fixed,
-            elevation: 0,
-            backgroundColor: const Color.fromARGB(248, 40, 40, 40),
-            showUnselectedLabels: false,
-            selectedFontSize: 14,
-            unselectedFontSize: 14,
-            iconSize: 28,
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Colors.white,
-            items: [
-              const BottomNavigationBarItem(icon: Icon(Icons.headphones), label: 'Home'),
-              const BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-              const BottomNavigationBarItem(icon: Icon(Icons.queue_music), label: 'Playlists'),
-              // if (context.watch<AuthProvider>().currentUser != null)
-              // if (Provider.of<AuthProvider>(context).currentUser != null)
-              if (_showAccounts) const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account'),
-            ],
-          ),
+      bottomNavigationBar: CustomCard(
+        // margin: const EdgeInsets.only(
+        //   top: 8,
+        //   left: 10,
+        //   right: 10,
+        //   bottom: 10,
+        // ),
+        padding: const EdgeInsets.all(0),
+        child: BottomNavigationBar(
+          onTap: (int newIndex) => {
+            setState(() {
+              _selectedScreenIndex = newIndex;
+            }),
+          },
+          currentIndex: _selectedScreenIndex,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          backgroundColor: const Color.fromARGB(248, 40, 40, 40),
+          showUnselectedLabels: false,
+          selectedFontSize: 14,
+          unselectedFontSize: 14,
+          iconSize: 28,
+          selectedItemColor: Theme.of(context).colorScheme.primary,
+          unselectedItemColor: Colors.white,
+          items: [
+            const BottomNavigationBarItem(icon: Icon(Icons.headphones), label: 'Home'),
+            const BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+            const BottomNavigationBarItem(icon: Icon(Icons.queue_music), label: 'Playlists'),
+            // if (context.watch<AuthProvider>().currentUser != null)
+            // if (Provider.of<AuthProvider>(context).currentUser != null)
+            if (_showAccounts) const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account'),
+          ],
         ),
       ),
     );

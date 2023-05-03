@@ -10,7 +10,7 @@ class NowPlayingBar extends StatefulWidget {
 }
 
 class _NowPlayingBarState extends State<NowPlayingBar> {
-  Offset pos_offset = const Offset(32, 732);
+  // Offset pos_offset = const Offset(32, 732);
   double _nowPlayingHeight = 80;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
             {
               debugPrint('dragUpdateDetails.delta.dy: ${dragUpdateDetails.delta.dy}'),
               setState(() => {
-                    pos_offset += dragUpdateDetails.delta,
+                    // pos_offset += dragUpdateDetails.delta,
                     _nowPlayingHeight += dragUpdateDetails.delta.dy * -1,
                   }),
             },
@@ -51,34 +51,37 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
           width: MediaQuery.of(context).size.width,
           child: CustomCard(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+            margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 0),
             color: const Color.fromARGB(248, 40, 40, 40),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CustomCard(
-                  padding: EdgeInsets.all(20),
-                  borderRadius: 2,
-                  child: Icon(Icons.album),
-                ),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Now Playing',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                    Text(
-                      'Now Subtitle',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  ],
-                ),
                 Expanded(
-                  child: Container(),
+                  child: Row(
+                    children: [
+                      const CustomCard(
+                        padding: EdgeInsets.all(20),
+                        borderRadius: 2,
+                        child: Icon(Icons.album),
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Now Playing',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          ),
+                          Text(
+                            'Now Subtitle',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 IconButton(
                     onPressed: () => {},

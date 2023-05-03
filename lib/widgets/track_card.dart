@@ -27,28 +27,31 @@ class _TrackCardState extends State<TrackCard> {
       padding: widget.padding,
       child: Row(
         children: [
-          const CustomCard(
-            padding: EdgeInsets.all(18),
-            borderRadius: 2,
-            child: Icon(Icons.album),
-          ),
-          const SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.trackTitle!,
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                widget.trackSubtitle!,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ),
           Expanded(
-            child: Container(),
+            child: Row(
+              children: [
+                const CustomCard(
+                  padding: EdgeInsets.all(18),
+                  borderRadius: 2,
+                  child: Icon(Icons.album),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.trackTitle!,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      widget.trackSubtitle!,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           const SizedBox(width: 10),
           Text(
