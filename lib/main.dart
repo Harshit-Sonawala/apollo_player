@@ -36,7 +36,7 @@ class Apollo extends StatelessWidget {
           primary: Color(0xff4bdbff),
           onPrimary: Color(0xff1d1d1d),
           secondary: Color.fromARGB(255, 11, 190, 152),
-          onSecondary: Color(0xFF2F88EE),
+          onSecondary: Color(0xff2f88ee),
           error: Color(0xffdd1b6c),
           onError: Color(0xff1d1d1d),
         ),

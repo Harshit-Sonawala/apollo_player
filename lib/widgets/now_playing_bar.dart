@@ -12,6 +12,7 @@ class NowPlayingBar extends StatefulWidget {
 class _NowPlayingBarState extends State<NowPlayingBar> {
   // Offset pos_offset = const Offset(32, 732);
   double _nowPlayingHeight = 80;
+  bool _shrink = false;
   @override
   Widget build(BuildContext context) {
     // Offset pos_offset = Offset(
@@ -32,19 +33,37 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
                     _nowPlayingHeight += dragUpdateDetails.delta.dy * -1,
                   }),
             },
+          if (dragUpdateDetails.delta.dy > 0 &&
+              _nowPlayingHeight > 0.2 * MediaQuery.of(context).size.height) // if downward swipe && height is bigger
+            {
+              setState(() => {_shrink = true}),
+            }
         },
         onVerticalDragEnd: (DragEndDetails dragEndDetails) async => {
           debugPrint('dragEndDetails: $dragEndDetails'),
           // for (var i = dragEndDetails.delta.dy; i > 80; i--) {
-
-          // }
-          for (var i = _nowPlayingHeight; i > 80.0; i = i - 1)
+          if (_nowPlayingHeight > 0.2 * MediaQuery.of(context).size.height)
             {
-              await Future.delayed(const Duration(microseconds: 800)),
-              setState(() => {
-                    _nowPlayingHeight -= 1,
-                  }),
-            }
+              for (var i = _nowPlayingHeight; i <= 0.8 * MediaQuery.of(context).size.height; i += 1)
+                {
+                  await Future.delayed(const Duration(microseconds: 800)),
+                  setState(() => {
+                        _nowPlayingHeight += 1,
+                      }),
+                },
+            },
+          // }
+          if (_shrink)
+            {
+              for (var i = _nowPlayingHeight; i > 80.0; i -= 1)
+                {
+                  await Future.delayed(const Duration(microseconds: 800)),
+                  setState(() => {
+                        _nowPlayingHeight -= 1,
+                        _shrink = false,
+                      }),
+                },
+            },
         },
         child: SizedBox(
           height: _nowPlayingHeight,
