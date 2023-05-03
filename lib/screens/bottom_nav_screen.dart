@@ -20,6 +20,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   GlobalKey<ScaffoldState> bottomNavScaffoldKey = GlobalKey<ScaffoldState>();
   var _selectedScreenIndex = 0;
   final _showAccounts = true;
+  final _showNowPlaying = true;
   final List<Map<String, Object>> _screenData = const [
     {"screen": HomeScreen()},
     {"screen": ExploreScreen()},
@@ -38,7 +39,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         // alignment: Alignment.topCenter,
         children: [
           _screenData[_selectedScreenIndex]['screen'] as Widget,
-          const NowPlayingBar(),
+          if (_showNowPlaying) const NowPlayingBar(),
         ],
       ),
       bottomNavigationBar: ClipRRect(
@@ -61,7 +62,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             currentIndex: _selectedScreenIndex,
             type: BottomNavigationBarType.fixed,
             elevation: 0,
-            backgroundColor: Colors.transparent,
+            backgroundColor: const Color.fromARGB(248, 40, 40, 40),
             showUnselectedLabels: false,
             selectedFontSize: 14,
             unselectedFontSize: 14,
