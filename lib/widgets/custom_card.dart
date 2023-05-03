@@ -25,7 +25,8 @@ class CustomCard extends StatefulWidget {
 class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
       margin: widget.margin,
       padding: widget.padding,
       decoration: widget.backgroundImage != ''
