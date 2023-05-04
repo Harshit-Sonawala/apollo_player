@@ -132,19 +132,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
@@ -160,37 +163,43 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',
                 ),
                 const SizedBox(height: 10),
-                const TrackCard(
+                TrackCard(
+                  onPressed: () => {},
                   trackTitle: 'Track Title',
                   trackSubtitle: 'Track Subtitle',
                   trackDuration: '12:34',

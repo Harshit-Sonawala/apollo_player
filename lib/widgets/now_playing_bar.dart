@@ -15,6 +15,9 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
   bool _nowPlayingClosed = true;
   double _swipeVelocity = 200.0;
   int _finalDuration = 200;
+  double _scaleValue = 1.0;
+  double _offsetValueX = 0.0;
+  double _offsetValueY = 0.0;
   @override
   Widget build(BuildContext context) {
     // debugPrint('Device Height: ${MediaQuery.of(context).size.height}');
@@ -54,11 +57,20 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
               setState(() => {
                     _nowPlayingHeight = maxHeight,
                     _nowPlayingClosed = false,
+                    _scaleValue = 5.0,
+                    _offsetValueX += 35.0,
+                    _offsetValueY += 10.0,
                   })
             },
           if (_nowPlayingHeight < minOpenThreshold)
             {
-              setState(() => {_nowPlayingHeight = minHeight, _nowPlayingClosed = true})
+              setState(() => {
+                    _nowPlayingHeight = minHeight,
+                    _nowPlayingClosed = true,
+                    _scaleValue = 1.0,
+                    _offsetValueX -= 35.0,
+                    _offsetValueY -= 10.0,
+                  })
             },
         },
         child: AnimatedContainer(
@@ -87,10 +99,16 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
                     Expanded(
                       child: Row(
                         children: [
-                          const CustomCard(
-                            padding: EdgeInsets.all(20),
-                            borderRadius: 2,
-                            child: Icon(Icons.album),
+                          Transform.scale(
+                            scale: _scaleValue,
+                            child: Transform.translate(
+                              offset: Offset(_offsetValueX, _offsetValueY),
+                              child: const CustomCard(
+                                padding: EdgeInsets.all(20),
+                                borderRadius: 2,
+                                child: Icon(Icons.album),
+                              ),
+                            ),
                           ),
                           const SizedBox(width: 10),
                           Column(
