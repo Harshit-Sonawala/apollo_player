@@ -1,3 +1,4 @@
+import 'package:apollo_player/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import './custom_elevated_button.dart';
 
@@ -192,6 +193,8 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
                                 ),
                               ],
                             ),
+                            const SizedBox(height: 20),
+                            Text('Up Next', style: Theme.of(context).textTheme.bodySmall),
                           ],
                         ),
                       )
