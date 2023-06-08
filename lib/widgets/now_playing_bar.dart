@@ -32,19 +32,18 @@ class _NowPlayingBarState extends State<NowPlayingBar> {
         onVerticalDragUpdate: (DragUpdateDetails dragUpdateDetails) => {
           if (dragUpdateDetails.delta.dy < 0) // if upward swipe but not necessary it crosses threshold
             {
-              setState(() => {
-                    // pos_offset += dragUpdateDetails.delta,
-                    _nowPlayingHeight += dragUpdateDetails.delta.dy * -3
-                  }),
+              setState(() =>
+                  // pos_offset += dragUpdateDetails.delta,
+                  _nowPlayingHeight += dragUpdateDetails.delta.dy * -3),
             },
           if (dragUpdateDetails.delta.dy > 0 &&
               _nowPlayingHeight >
                   minHeight) // if downward swipe && height is bigger than min (to avoid renderflex overflow)
             {
-              setState(() => {
-                    _nowPlayingHeight += dragUpdateDetails.delta.dy * -3,
-                    // _nowPlayingClosed = true,
-                  }),
+              setState(
+                () => _nowPlayingHeight += dragUpdateDetails.delta.dy * -3,
+                // _nowPlayingClosed = true,
+              ),
             }
         },
         onVerticalDragEnd: (DragEndDetails dragEndDetails) => {
